@@ -9,22 +9,25 @@ const Navbar = () => {
   return (
     <div className="w-full fixed top-0 py-6 border-b bg-white z-10">
         <div className="max-w-[1500px] mx-auto px-6">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center mb-6">
                 <Link href="/">
                     <Image 
                         src="/logo.png"
                         alt="Logo"
-                        width={180}
+                        width={120}
                         height={38}
                     />
                 </Link>
-                <div className="flex space-x-6">
-                    <SearchFilters />
+                <div className="flex space-x-8 items-center">
+                    <h1 className="p-2 text-sm cursor-pointer font-semibold rounded-full hover:bg-gray-200">Acomodações</h1>
                 </div>
                 <div className="flex items-center space-x-6">
                     <AddPropertyButton />
                     <UserNav />
                 </div>
+            </div>
+            <div className="flex items-center justify-center">
+                <SearchFilters />
             </div>
         </div>
     </div>
