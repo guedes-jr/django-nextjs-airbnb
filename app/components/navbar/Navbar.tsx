@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import SearchFilters from './SearchFilters'
+import UserNav from './UserNav'
+import AddPropertyButton from './AddPropertyButton'
 
 const Navbar = () => {
   return (
@@ -15,6 +18,13 @@ const Navbar = () => {
                         height={38}
                     />
                 </Link>
+                <div className="flex space-x-6">
+                    <SearchFilters />
+                </div>
+                <div className="flex items-center space-x-6">
+                    <AddPropertyButton />
+                    <UserNav />
+                </div>
             </div>
         </div>
     </div>
