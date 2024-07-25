@@ -1,11 +1,15 @@
-import React from 'react'
+"use client"
+
+import { usePathname } from "next/navigation"
 
 const SearchFilters = () => {
+  const path = usePathname();
+
   return (
     <div className="h-[48px] lg:h-[64px] flex flex-row items-center justify-between border rounded-full shadow-md">
         <div className="hidden lg:block">
             <div className="flex flex-row items-center justify-between">
-                <div className="cursor-pointer w-[250px] lg:h-[64px] px-8 flex flex-col justify-center rounded-full hover:bg-gray-100">
+                <div className={`cursor-pointer ${(path === '/') ? 'w-[250px]': 'w-[200px]'} lg:h-[64px] px-8 flex flex-col justify-center rounded-full hover:bg-gray-100`}>
                     <p className="text-xs font-semibold">Onde</p>
                     <p className="text-sm">Buscar destinos</p>
                 </div>
@@ -19,7 +23,7 @@ const SearchFilters = () => {
                     <p className="text-sm">Insira as datas</p>
                 </div>
 
-                <div className="cursor-pointer w-[250px] lg:h-[64px] px-8 flex flex-col justify-center rounded-full hover:bg-gray-100">
+                <div className={`cursor-pointer ${(path === '/') ? 'w-[250px]': 'w-[200px]'} lg:h-[64px] px-8 flex flex-col justify-center rounded-full hover:bg-gray-100`}>
                     <p className="text-xs font-semibold">Quem</p>
                     <p className="text-sm">Hospedés?</p>
                 </div>

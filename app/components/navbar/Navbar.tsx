@@ -1,11 +1,16 @@
+"use client"
+
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import SearchFilters from './SearchFilters'
 import UserNav from './UserNav'
 import AddPropertyButton from './AddPropertyButton'
+import { usePathname } from 'next/navigation'
 
 const Navbar = () => {
+  const path = usePathname();
+
   return (
     <div className="w-full fixed top-0 py-6 border-b bg-white z-10">
         <div className="max-w-[1500px] mx-auto px-6">
@@ -19,16 +24,22 @@ const Navbar = () => {
                     />
                 </Link>
                 <div className="flex space-x-8 items-center">
-                    <h1 className="p-2 text-sm cursor-pointer font-semibold rounded-full hover:bg-gray-200">Acomodações</h1>
+                    {(path === '/')? ( 
+                        <h1 className="p-2 text-sm cursor-pointer font-semibold rounded-full hover:bg-gray-200">Acomodações</h1>
+                    ): (
+                        <SearchFilters />
+                    )}
                 </div>
                 <div className="flex items-center space-x-6">
                     <AddPropertyButton />
                     <UserNav />
                 </div>
             </div>
-            <div className="flex items-center justify-center">
-                <SearchFilters />
-            </div>
+            {(path === '/')? ( 
+                <div className="flex items-center justify-center">
+                    <SearchFilters />
+                </div>
+            ):''}
         </div>
     </div>
   )
